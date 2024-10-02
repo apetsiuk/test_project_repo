@@ -1,5 +1,6 @@
-name: Run GitHub CLI Command
+name: Run GitHub CLI Command on Push
 
+# Trigger the workflow on push to the 'main' branch
 on:
   push:
     branches:
@@ -7,7 +8,7 @@ on:
 
 jobs:
   run-gh-cli:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest # Run on the latest Ubuntu environment
 
     steps:
       # Step 1: Checkout the repository
@@ -18,11 +19,12 @@ jobs:
       - name: Install GitHub CLI
         uses: actions/setup-gh@v2
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }} # Use the GitHub token provided by Actions
 
-      # Step 3: Run a GitHub CLI command
-      - name: Run GitHub CLI Command
-        run: |
-          gh auth status
-          gh repo view
-          gh issue list
+      # Step 3: Authenticate the GitHub CLI
+      - name: Authenticate with GitHub CLI
+        run: gh auth status # Check that authentication is successful
+
+      # Step 4: Run a GitHub CLI command to list issues
+      - name: List GitHub Issues
+        run: gh issue list
