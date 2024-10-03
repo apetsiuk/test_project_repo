@@ -31,3 +31,7 @@ jobs:
         run: |
           gh issue list
           git config --global --add url."git@github.com:".insteadOf "https://github.com/"
+          git config --global user.name myusername
+          git config --global user.email myemail
+          git remote set-url origin https://x-access-token:${{ secrets.MY_PARETO_TOKEN }}@github.com/${{ github.repository }}
+          ...git operations
