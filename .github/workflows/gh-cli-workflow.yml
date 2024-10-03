@@ -19,7 +19,7 @@ jobs:
       - name: Install GitHub CLI
         uses: actions/checkout@v2
         with:
-          repository: test_project_repo
+          repository: apetsiuk/test_project_repo
           token: ${{ secrets.MY_PARETO_TOKEN }} # Use the GitHub token provided by Actions
 
       # Step 3: Authenticate the GitHub CLI
