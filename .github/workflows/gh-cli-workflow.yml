@@ -19,7 +19,7 @@ jobs:
       - name: Install GitHub CLI
         uses: actions/setup-gh@v2
         with:
-          token: ${{ secrets.GITHUB_TOKEN }} # Use the GitHub token provided by Actions
+          token: ${{ secrets.MY_PARETO_TOKEN }} # Use the GitHub token provided by Actions
 
       # Step 3: Authenticate the GitHub CLI
       - name: Authenticate with GitHub CLI
