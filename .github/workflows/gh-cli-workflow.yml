@@ -28,4 +28,6 @@ jobs:
 
       # Step 4: Run a GitHub CLI command to list issues
       - name: List GitHub Issues
-        run: gh issue list
+        run: |
+          gh issue list
+          git config --global --add url."git@github.com:".insteadOf "https://github.com/"
