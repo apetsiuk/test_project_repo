@@ -44,5 +44,7 @@ jobs:
         run: |
           gh issue list
           gh version
+          gh auth login
+          gh auth status
 
 
