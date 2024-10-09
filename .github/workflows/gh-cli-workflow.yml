@@ -41,5 +41,6 @@ jobs:
       - name: List GitHub Issues
         run: |
           gh issue list
-          git remote set-url origin https://x-access-token:${{ secrets.MY_PARETO_TOKEN }}@github.com/${{ github.repository }}
+          gh version
+
 
