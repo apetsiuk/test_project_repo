@@ -17,8 +17,8 @@ jobs:
         
         
       # Step 2: Print "Hello, World!"
-        - name: Print Hello, World!
-          run: echo "Hello, World!"
+      - name: Print Hello, World!
+        run: echo "Hello, World!"
           
       # Step 3: List files in the repository
       - name: List files in the repository
