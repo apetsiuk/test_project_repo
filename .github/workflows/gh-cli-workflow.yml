@@ -14,24 +14,14 @@ jobs:
       # Step 1: Checkout the repository
       - name: Checkout repository
         uses: actions/checkout@v3
+        
+        
+      # Step 2: Print "Hello, World!"
+        - name: Print Hello, World!
+          run: echo "Hello, World!"
+          
+      # Step 3: List files in the repository
+      - name: List files in the repository
+        run: ls -la
 
-      # Step 2: Set up GitHub CLI
-      - name: Install GitHub CLI
-        uses: github/setup-gh@v4
-        with:
-          repository: apetsiuk/test_project_repo
-          token: ${{ secrets.MY_PARETO_TOKEN }} # Use the GitHub token provided by Actions
 
-      # Step 3: Authenticate the GitHub CLI
-      - name: Authenticate with GitHub CLI
-        run: gh auth status # Check that authentication is successful
-
-      # Step 4: Run a GitHub CLI command to list issues
-      - name: List GitHub Issues
-        run: |
-          gh issue list
-          git config --global --add url."git@github.com:".insteadOf "https://github.com/"
-          git config --global user.name myusername
-          git config --global user.email myemail
-          git remote set-url origin https://x-access-token:${{ secrets.MY_PARETO_TOKEN }}@github.com/${{ github.repository }}
-          ...git operations
