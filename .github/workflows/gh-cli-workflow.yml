@@ -51,7 +51,7 @@ jobs:
           -H "Authorization: bearer ${{ secrets.GITHUB_TOKEN }}" \
           -H "Content-Type: application/json" \
           --data '{
-            "query": "query($user: String! $number: Int!){user(login: $user){projectV2(number: $number) {id}}}" -f user=apetsiuk -F number=3
+            "query": "query{user(login: apetsiuk){projectV2(number: 3) {id}}}"
           }' \
           https://api.github.com/graphql
 
