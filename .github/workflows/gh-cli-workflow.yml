@@ -38,5 +38,5 @@ jobs:
       - name: List GitHub Issues
         run: |
           gh issue list
-          gh api graphql -f query="query {node(id: \"PVT_kwDOBpXwDs4AZl82\"){ ... on ProjectV2 {items(last: 2){ nodes{id fieldValues(first: 32){ __typename } content{ ...on Issue{title state createdAt author{login} labels(first: 10){nodes {name}}}} status: fieldValueByName(name:\"Status\") { ... on ProjectV2ItemFieldSingleSelectValue{name}} customer: fieldValueByName(name:\"Customer\") { ... on ProjectV2ItemFieldSingleSelectValue{name}} account_manager: fieldValueByName(name:\"Account Manager\") { ... on ProjectV2ItemFieldSingleSelectValue{name}} account_manager: fieldValueByName(name:\"Account Manager\") { ... on ProjectV2ItemFieldSingleSelectValue{name}} software_version: fieldValueByName(name:\"Software Version\") { ... on ProjectV2ItemFieldSingleSelectValue{name}}}}}}}"
+          gh api graphql -f query="query {node(id: \"PVT_kwHOAh9Tc84Amrsu\"){ ... on ProjectV2 {items(first: 5){nodes{id fieldValues(first: 16){nodes{ ...on ProjectV2ItemFieldSingleSelectValue{name} ...on ProjectV2ItemFieldTextValue{text} ...on ProjectV2ItemFieldDateValue{date} ...on ProjectV2ItemFieldNumberValue{number}}} content{ ...on Issue {title body state createdAt author{login} labels(first: 10) {nodes {name}}}}}}}}}"
 
