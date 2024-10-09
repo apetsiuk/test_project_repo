@@ -6,6 +6,9 @@ on:
   push:
     branches:
       - main
+      
+permissions:
+  contents: write
 
 jobs:
   run-gh-cli:
@@ -29,8 +32,6 @@ jobs:
       # Step 4: Setup gh
       - name: Setup gh
         uses: wusatosi/setup-gh@v1
-        with:
-          token: ${{ secrets.MY_PARETO_TOKEN }} # Use the GitHub token provided by Actions
         
       # Step 5: Authenticate the GitHub CLI
       - name: Authenticate with GitHub CLI
