@@ -1,9 +1,5 @@
 name: Run GitHub CLI Command on Push
-description: AAA DESC
 
-branding:
-  icon: 'play-circle'
-  color: 'blue'
 
 # Trigger the workflow on push to the 'main' branch
 on:
@@ -14,6 +10,7 @@ on:
 jobs:
   run-gh-cli:
     runs-on: ubuntu-latest # Run on the latest Ubuntu environment
+    container: ubuntu:latest
 
     steps:
       # Step 1: Checkout the repository
@@ -28,6 +25,11 @@ jobs:
       # Step 3: List files in the repository
       - name: List files in the repository
         run: ls -la
+        
+      # Step 4: Setup gh
+      - name: Setup gh
+        uses: wusatosi/setup-gh@v1
+
 
 
 
