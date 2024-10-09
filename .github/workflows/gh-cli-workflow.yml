@@ -20,7 +20,7 @@ jobs:
     steps:
       # Step 1: Checkout the repository
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
         
         
       # Step 2: Print "Hello, World!"
@@ -30,14 +30,7 @@ jobs:
       # Step 3: List files in the repository
       - name: List files in the repository
         run: ls -la
-        
-      # Step 4: Setup gh
-      - name: Setup gh
-        uses: wusatosi/setup-gh@v1
-        
-      # Step 5: Authenticate the GitHub CLI
-      - name: Authenticate with GitHub CLI
-        run: gh auth status # Check that authentication is successful
+       
         
       # Step 6: Run a GitHub CLI command to list issues
       - name: List GitHub Issues
@@ -47,6 +40,13 @@ jobs:
           echo ${{ github.repository }}
           echo ${{ github.token }}
           gh project list
+          curl -X POST \
+          -H "Authorization: bearer ${{ secrets.MY_PARETO_TOKEN }}" \
+          -H "Content-Type: application/json" \
+          --data '{
+            "query": "query($user: String! $number: Int!){user(login: $user){projectV2(number: $number) {id}}}" -f user=apetsiuk -F number=3
+          }' \
+          https://api.github.com/graphql
 
 
 
