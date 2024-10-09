@@ -1,5 +1,5 @@
 name: Run GitHub CLI Command on Push
-description: 'AAA DESC'
+description: AAA DESC
 
 branding:
   icon: 'play-circle'
