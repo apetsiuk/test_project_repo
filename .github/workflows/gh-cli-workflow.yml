@@ -48,7 +48,7 @@ jobs:
           echo ${{ github.token }}
           gh project list
           curl -X POST \
-          -H "Authorization: bearer ${{ secrets.MY_PARETO_TOKEN }}" \
+          -H "Authorization: bearer ${{ secrets.GITHUB_TOKEN }}" \
           -H "Content-Type: application/json" \
           --data '{
             "query": "query($user: String! $number: Int!){user(login: $user){projectV2(number: $number) {id}}}" -f user=apetsiuk -F number=3
