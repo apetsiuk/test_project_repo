@@ -45,6 +45,7 @@ jobs:
           gh issue list
           gh version
           echo ${{ github.repository }}
+          echo ${{ github.token }}
 
 
 
