@@ -23,5 +23,9 @@ jobs:
       # Step 3: List files in the repository
       - name: List files in the repository
         run: ls -la
+        
+      # Step 45: Authenticate the GitHub CLI
+      - name: Authenticate with GitHub CLI
+        run: gh auth status # Check that authentication is successful
 
 
